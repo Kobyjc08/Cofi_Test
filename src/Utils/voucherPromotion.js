@@ -1,20 +1,14 @@
 const voucherPromotion = vouchers => {
-  let totalPrice = 0;
-  vouchers.forEach(voucher => {
-    totalPrice += voucher.price;
-  });
   if (vouchers.length < 2) {
-    return totalPrice;
+    if (vouchers.length !== 0) {
+      return vouchers[0].price;
+    } else {
+      return 0;
+    }
   } else if (vouchers.length % 2 === 0) {
-    return (totalPrice = totalPrice / 2);
+    return (vouchers.length / 2) * vouchers[0].price;
   } else {
-    let vouchersWithDiscount = vouchers;
-    vouchersWithDiscount.splice(-1, 1);
-    console.log(vouchersWithDiscount);
-    vouchersWithDiscount.forEach(voucher => {
-      totalPrice += voucher.price;
-    });
-    return (totalPrice = totalPrice / 2 + vouchers[0].price);
+    return ((vouchers.length - 1) / 2 + 1) * vouchers[0].price;
   }
 };
 export { voucherPromotion };

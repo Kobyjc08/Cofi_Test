@@ -29,12 +29,12 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-200 px-10">
+    <div className="min-h-screen bg-gray-200 px-4">
       <h1>Cofi- Test</h1>
 
-      <div className="grid">
+      <div className="grid grid-cols-3 gap-4">
         {db.map((product, index) => (
-          <button key={index} className="bg-blue-500 text-white" onClick={() => scan(product.code)}>
+          <button key={index} className="bg-blue-500 text-white py-4 rounded-2xl" onClick={() => scan(product.code)}>
             {product.name} - {product.price}€
           </button>
         ))}
